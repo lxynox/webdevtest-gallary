@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "alias": "webdev-take-home-exercise",
+  "github": {
+    "enabled": true
+  },
+  "builds": [
+    {
+      "src": "{assets,public}/**",
+      "use": "@now/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(pet\/.*)?",
+      "dest": "/public"
+    },
+    {
+      "src": "/api/pet/(.*)",
+      "dest": "/api/pet?id=$1"
+    }
+  ]
+}

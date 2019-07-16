@@ -2,7 +2,7 @@ const render = () => {
   /**
    * routing
    */
-  if (/\/pets\/(.*)/.test(location.pathname)) {
+  if (/\/pet\/(.*)/.test(location.pathname)) {
     const petId = location.pathname.split('/').pop()
     modalState = {
       ...modalState,

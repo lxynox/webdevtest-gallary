@@ -17,7 +17,7 @@ const renderGallary = ({ pets, isLoading }) => {
       li.classList.add('gallary-item')
       li.innerHTML = `<img src="${pet.image}" alt="puppy" />`
       li.addEventListener('click', () => {
-        history.pushState({}, null, `/pets/${pet.id}`)
+        history.pushState({}, null, `/pet/${pet.id}`)
         render()
       })
       fragment.appendChild(li)

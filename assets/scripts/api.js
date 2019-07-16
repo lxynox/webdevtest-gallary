@@ -24,5 +24,5 @@ const api = {
     }
     return requester(`/api/pets${search}`, { method: 'GET' })
   },
-  getPet: id => requester(`/api/pets/${id}`, { method: 'GET' }),
+  getPet: id => requester(`/api/pet/${id}`, { method: 'GET' }),
 }
