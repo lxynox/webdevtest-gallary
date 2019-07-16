@@ -2,10 +2,9 @@ const fs = require('fs')
 const path = require('path')
 const express = require('express')
 const app = express()
-const fallback = require('express-history-api-fallback')
 const port = process.env.PORT || 3000
 
-app.use(express.static(__dirname))
+app.use(express.static(path.join(__dirname, 'public')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.use(
 	'/api',
@@ -28,13 +27,18 @@ app.use(
       })
 		})
 		router.get('/pets/:id', async (req, res) => {
-			await delay(500)
-			res.json(pets[req.params.id])
+      await delay(500)
+      res.json(pets[req.params.id])
 		})
 		return router
 	})(express.Router())
 )
-app.use(fallback('index.html', {root: __dirname}))
+app.use('/pets', (req, res, next) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+})
+app.use('*', (req, res) => {
+  res.status(404).sendFile('404.html', {root: path.join(__dirname, 'public')})
+})
 
 app.listen(port, () => {
 	console.log(`server listening at port: ${port}`)

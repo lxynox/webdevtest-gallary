@@ -5,12 +5,13 @@ const loadMoreBtn = document.querySelector('.load-more-btn')
 
 const onLoadMoreClick = () => {
   gallaryState.isLoading = true
+  renderGallary(gallaryState)
   api.getPets({currentPage: loadMoreState.currentPage}).then(res => {
     gallaryState.pets = [...gallaryState.pets, ...res.pets]
     gallaryState.isLoading = false
     renderGallary(res)
     loadMoreState = {...loadMoreState, ...res}
-    renderLoadMore(res)
+    renderLoadMore(loadMoreState)
   })
 }
 
