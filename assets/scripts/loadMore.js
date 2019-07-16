@@ -1,4 +1,4 @@
-let loadMoreState = {currentPage: 0, hasMore: false}
+let loadMoreState = { currentPage: 0, hasMore: false }
 
 const loadMore = document.querySelector('.load-more')
 const loadMoreBtn = document.querySelector('.load-more-btn')
@@ -6,16 +6,16 @@ const loadMoreBtn = document.querySelector('.load-more-btn')
 const onLoadMoreClick = () => {
   gallaryState.isLoading = true
   renderGallary(gallaryState)
-  api.getPets({currentPage: loadMoreState.currentPage}).then(res => {
+  api.getPets({ currentPage: loadMoreState.currentPage }).then(res => {
     gallaryState.pets = [...gallaryState.pets, ...res.pets]
     gallaryState.isLoading = false
     renderGallary(res)
-    loadMoreState = {...loadMoreState, ...res}
+    loadMoreState = { ...loadMoreState, ...res }
     renderLoadMore(loadMoreState)
   })
 }
 
-const renderLoadMore = ({hasMore}) => {
+const renderLoadMore = ({ hasMore }) => {
   if (!hasMore) {
     loadMore.classList.add('hide')
     loadMoreBtn.removeEventListener('click', onLoadMoreClick)

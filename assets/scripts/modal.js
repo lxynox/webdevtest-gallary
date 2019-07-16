@@ -1,4 +1,4 @@
-let modalState = {isOpen: false, currentPet: null, isLoading: false}
+let modalState = { isOpen: false, currentPet: null, isLoading: false }
 
 const modal = document.querySelector('.modal')
 const modalCloser = document.querySelector('.modal-closer')
@@ -6,15 +6,15 @@ const modalOverlay = document.querySelector('.modal-overlay')
 const modalContent = document.querySelector('.modal-content')
 const modalSpinner = document.querySelector('.modal-spinner')
 
-const renderModal = ({isOpen, isLoading, currentPet}) => {
-	if (isOpen) {
-		modal.classList.add('is-visible')
+const renderModal = ({ isOpen, isLoading, currentPet }) => {
+  if (isOpen) {
+    modal.classList.add('is-visible')
     modalOverlay.classList.add('is-grayed')
-		if (isLoading) {
+    if (isLoading) {
       renderSpinner(modalSpinner)
       modalSpinner.classList.add('modal-spinner-fullsize')
     }
-		else {
+    else {
       modalSpinner.innerHTML = ''
       modalSpinner.classList.remove('modal-spinner-fullsize')
     }
@@ -22,10 +22,10 @@ const renderModal = ({isOpen, isLoading, currentPet}) => {
       modalContent.innerHTML = `<img src=${currentPet.image} />`
     else
       modalContent.innerHTML = ''
-	} else {
-		modal.classList.remove('is-visible')
-		modalOverlay.classList.remove('is-grayed')
-	}
+  } else {
+    modal.classList.remove('is-visible')
+    modalOverlay.classList.remove('is-grayed')
+  }
 }
 
 modalCloser.addEventListener('click', () => {
