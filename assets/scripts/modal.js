@@ -1,4 +1,4 @@
-let modalState = {isOpen: false, currentPet: null, isLoading: true}
+let modalState = {isOpen: false, currentPet: null, isLoading: false}
 
 const modal = document.querySelector('.modal')
 const modalCloser = document.querySelector('.modal-closer')
@@ -29,7 +29,6 @@ const renderModal = ({isOpen, isLoading, currentPet}) => {
 }
 
 modalCloser.addEventListener('click', () => {
-	history.pushState({}, null, `/`)
-	modalState.isOpen = false
-	renderModal(modalState)
+  history.pushState({}, null, `/`)
+  render();
 })

@@ -5,7 +5,7 @@ const loadMoreBtn = document.querySelector('.load-more-btn')
 
 const onLoadMoreClick = () => {
   gallaryState.isLoading = true
-  api.getPets({ currentPage: loadMoreState.currentPage }).then(res => {
+  api.getPets({currentPage: loadMoreState.currentPage}).then(res => {
     gallaryState.pets = [...gallaryState.pets, ...res.pets]
     gallaryState.isLoading = false
     renderGallary(res)
@@ -14,7 +14,7 @@ const onLoadMoreClick = () => {
   })
 }
 
-const renderLoadMore = ({ hasMore }) => {
+const renderLoadMore = ({hasMore}) => {
   if (!hasMore) {
     loadMore.classList.add('hide')
     loadMoreBtn.removeEventListener('click', onLoadMoreClick)
@@ -23,5 +23,3 @@ const renderLoadMore = ({ hasMore }) => {
     loadMoreBtn.addEventListener('click', onLoadMoreClick)
   }
 }
-
-renderLoadMore(loadMoreState)

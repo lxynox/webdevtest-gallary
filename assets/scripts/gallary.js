@@ -1,4 +1,4 @@
-let gallaryState = {pets: [], isLoading: true}
+let gallaryState = {pets: null, isLoading: false}
 
 const gallary = document.querySelector('.gallary')
 const spinnerContainer = document.createElement('div')
@@ -18,12 +18,9 @@ const renderGallary = ({pets, isLoading}) => {
     li.innerHTML = `<img src="${pet.image}" alt="puppy" />`
     li.addEventListener('click', () => {
       history.pushState({}, null, `/pets/${pet.id}`)
-      modalState = {...modalState, isOpen: true, currentPet: pet, isLoading: false}
-      renderModal(modalState)
+      render();
     })
     fragment.appendChild(li)
   })
   gallary.appendChild(fragment)
 }
-
-renderGallary(gallaryState)
