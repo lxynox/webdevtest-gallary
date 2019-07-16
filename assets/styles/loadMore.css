@@ -1,0 +1,21 @@
+.load-more {
+  margin: 1rem 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.load-more.hide {
+  display: none;
+}
+
+.load-more-btn {
+  height: 2.5rem;
+  width: 10rem;
+  font-size: 1em;
+  background: dodgerblue;
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}

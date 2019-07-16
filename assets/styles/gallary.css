@@ -1,0 +1,26 @@
+.gallary {
+	padding: 0;
+	display: flex;
+	/* justify-content: flex-start; */
+	flex-wrap: wrap;
+	list-style: none;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.gallary img {
+	width: 100%;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+	.gallary-item {
+		flex: 1 0 33%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.gallary-item {
+		flex: 0 0 25%;
+	}
+}
